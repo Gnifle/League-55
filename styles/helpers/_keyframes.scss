@@ -1,0 +1,36 @@
+//
+//	KEYFRAMES
+//-------------------------------------------------------------------------------------------------------------|
+
+	@import "../helpers/colors";
+	@import "../helpers/mixins";
+
+//	1. PULSE
+//-------------------------------------------------------------------------------------------------------------|
+
+@keyframes pulse {
+	0% {
+		@include 		transform(scale(1));
+		opacity: 		0.9;
+	}
+
+	50% {
+		@include 		transform(scale(0.9));
+		opacity: 		0.5;
+	}
+
+	100% {
+		@include 		transform(scale(1));
+		opacity: 		0.9;
+	}
+}
+
+@keyframes showcase-zoom {
+	0% {
+		@include transform(scale(1.0, 1.0));
+	}
+
+	100% {
+		@include transform(scale(1.1, 1.1));
+	}
+}

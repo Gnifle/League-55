@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>SassDoc</title><link rel="stylesheet" href="assets/css/main.css"><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="SassDoc - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="Release the docs!"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title">SassDoc</h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="undefined"><a href="#undefined">General</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-mixin"><a href="#undefined-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-name="fancyGradient" data-type="mixin"><a href="#mixin-fancyGradient">fancyGradient</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="undefined"><div class="container">General</div></h1><section class="main__sub-section" id="undefined-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="mixin-fancyGradient"><h3 class="item__heading"><a class="item__name" href="#mixin-fancyGradient">fancyGradient</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin fancyGradient($direction: top, $color: rgb(40, 140, 251), $transparency: (0.6, 0.85, 1), $positions: (0%, 20%, 60%), $applyBorder: true) { 
+	@if $applyBorder == true {
+		border-#{$direction}: 3px solid $color;
+	}
+	background:
+		linear-gradient($direction,
+			transparentize($color, nth($transparency, 1)) nth($positions, 1),
+			transparentize($color, nth($transparency, 2)) nth($positions, 2),
+			transparentize($color, nth($transparency, 3)) nth($positions, 3)
+    );
+	background:
+		-webkit-linear-gradient($direction,
+			transparentize($color, nth($transparency, 1)) nth($positions, 1),
+			transparentize($color, nth($transparency, 2)) nth($positions, 2),
+			transparentize($color, nth($transparency, 3)) nth($positions, 3)
+    );
+	background:
+        -moz-linear-gradient($direction,
+			transparentize($color, nth($transparency, 1)) nth($positions, 1),
+			transparentize($color, nth($transparency, 2)) nth($positions, 2),
+			transparentize($color, nth($transparency, 3)) nth($positions, 3)
+    );
+	background:
+        -o-linear-gradient($direction,
+			transparentize($color, nth($transparency, 1)) nth($positions, 1),
+			transparentize($color, nth($transparency, 2)) nth($positions, 2),
+			transparentize($color, nth($transparency, 3)) nth($positions, 3)
+    );
+ }" data-collapsed="@mixin fancyGradient($direction: top, $color: rgb(40, 140, 251), $transparency: (0.6, 0.85, 1), $positions: (0%, 20%, 60%), $applyBorder: true) { ... }"><code>@mixin fancyGradient($direction: top, $color: rgb(40, 140, 251), $transparency: (0.6, 0.85, 1), $positions: (0%, 20%, 60%), $applyBorder: true) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Add a fancy gradient and a matching border to an element.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$direction</code></th><td data-label="desc"><p>The from-direction of the gradient.</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>top</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$color</code></th><td data-label="desc"><p>The color for the gradient - can be HEX, RGB, RGBA, HSL or CMYK.</p></td><td data-label="type"><code>Color</code></td><td data-label="default"><code class="color-preview--inline" style="background:rgb(40, 140, 251); color: #fff">rgb(40, 140, 251)</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$transparency</code></th><td data-label="desc"><p>List of 3 decimal-percentages for the color to be transparentized at each level of the gradient. Can be integer or double.</p></td><td data-label="type"><code>(num, num, num)</code></td><td data-label="default"><code>(0.6, 0.85, 1)</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$positions</code></th><td data-label="desc"><p>List of 3 percentages for the color-stop position at each level of the gradient.</p></td><td data-label="type"><code>(%, %, %)</code></td><td data-label="default"><code>(0%, 20%, 60%)</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$applyBorder</code></th><td data-label="desc"><p>Boolean for whether the 3px border should be added along with the gradient.</p></td><td data-label="type"><code>Boolean</code></td><td data-label="default"><code>true</code></td></tr></tbody></table><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Border and background gradient code in SCSS with relevant vendor prefixes.</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Basic usage</p></div><pre class="example__code language-scss"><code>.example {
+    @include fancyGradient(bottom, rgb(40, 140, 251), (0.6, 0.85, 1), (0%, 20%, 60%), true);
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>Basic usage output</p></div><pre class="example__code language-scss"><code>.example {
+    border-bottom: 3px solid rgb(40, 140, 251);
+    background: linear-gradient(bottom,
+        rgba(40, 140, 251, 0.4) 0%,
+        rgba(40, 140, 251, 0.15) 20%,
+        rgba(40, 140, 251, 0) 60%);
+    background: -webkit-linear-gradient(bottom,
+        rgba(40, 140, 251, 0.4) 0%,
+        rgba(40, 140, 251, 0.15) 20%,
+        rgba(40, 140, 251, 0) 60%);
+    background: -moz-linear-gradient(bottom,
+        rgba(40, 140, 251, 0.4) 0%,
+        rgba(40, 140, 251, 0.15) 20%,
+        rgba(40, 140, 251, 0) 60%);
+    background: -o-linear-gradient(bottom,
+        rgba(40, 140, 251, 0.4) 0%,
+        rgba(40, 140, 251, 0.15) 20%,
+        rgba(40, 140, 251, 0) 60%);
+}</code></pre></div><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://jsfiddle.net/zw76ucuh/3/">Example jsfiddle</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Daniel &#39;Gnifle&#39; Olsen</p></li></ul></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --><span class="project-info__name">SassDoc</span><!-- Version --><!-- License --></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>

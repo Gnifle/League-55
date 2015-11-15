@@ -1,0 +1,14 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^([^/\.]+)/?$ index.php?page=$1 [L]
+RewriteRule ^([^/]+)/([^/\.]+)/?$ index.php?page=$1&region=$2 [L,QSA]
+RewriteRule ^([^/]+)/([^/\.]+)/([^/\.]+)?$ index.php?page=$1&region=$2&tag=$3 [L,QSA]
+
+#RewriteRule ^(.*)$ /index.php?/$1
+
+#RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?page=$1
+
+#RewriteRule ^([a-zA-Z0-9_-]+)/$ index.php?page=$1

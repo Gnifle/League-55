@@ -1,0 +1,40 @@
+Use team create date to check if the team being loaded is
+actually the team that's being looked for?
+
+Team details page:
+ - Name
+ - Tag
+ - Rank
+ - Division
+ - Roster
+ - Wins/Losses
+ - Winrate
+ - Recent form (20 games)
+ - Create date
+ - Games played
+ - Latest game date
+
+Load page, e.g.: ~/teams/euw/wrgdk
+Get teamId from MongoDB based on 'region' and 'tag'
+  If no result, redirect to search page and display error
+Load team (see example.js)
+  If team.dbvars == true
+    updateStats() through the Riot API
+    Log to team
+Display info
+
+Stats:
+  General stats
+    Games played team
+      Total
+      Wins
+      Losses
+    Games played player
+  CS
+  Damage
+
+Info
+Champions
+Stats
+Damage
+Match History

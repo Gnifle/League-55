@@ -1,0 +1,8 @@
+.ct-series {
+
+	&.ct-series-a ct-line {
+		stroke: lime !important;
+		stroke-width: 10px;
+		stroke-dasharray: 10px 20px;
+	}
+}

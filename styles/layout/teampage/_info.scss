@@ -1,0 +1,190 @@
+@import "../../helpers/imports";
+
+#tab-content-info {
+	@extend %clearfix;
+
+	.section {
+		@include size(25%, auto);
+		float: left;
+		margin: 0 0 30px 0;
+
+		&:not(:first-child) {
+			padding: 0 10px 0 10px;
+		}
+		&:first-child {
+			padding: 0 10px 0 0;
+		}
+		&:last-child {
+			padding: 0 0 0 10px;
+		}
+
+		.roster {
+			@include size(100%, auto);
+
+			ul > li {
+
+				&.captain:before {
+					@include transform(rotate(-45deg));
+					@include size(100px, 6px);
+					content: '';
+					display: block;
+					position: absolute;
+					left: -15%;
+					border-top: 3px solid darken($RED, 10%);
+					border-bottom: 2px solid darken($RED, 10%);
+					background: $RED;
+				}
+
+				&:after {
+					@include size(100%, 60px);
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					background: url(#{$IMAGES}/graphics/opgg.png) no-repeat right center;
+					background-size: 40px;
+					z-index: 3;
+				}
+
+				.listItemIcon {
+					@include size(40px);
+					background: url(#{$IMAGES}/graphics/roles/roles.png) no-repeat;
+					background-size: auto 40px;
+
+					&.top { background-position: -120px 0; }
+					&.jungle { background-position: -200px 0; }
+					&.mid { background-position: -80px 0; }
+					&.adc { background-position: -40px 0; }
+					&.support { background-position: -160px 0; }
+				}
+			}
+		}
+
+		.details {
+			text-align: center;
+
+			h2 {
+				text-align: left;
+			}
+
+			.shadeBorder {
+				background: transparentize($L55_Highlight, 0.9);
+				border: 1px solid transparentize($L55_Highlight, 0.8);
+				padding: 20px;
+
+				> img {
+					@include transform(translateX(-50%));
+					@include size(150px);
+					display:  block;
+					position: relative;
+					left:     50%;
+					margin:   0 0 5px 0;
+				}
+
+				> span {
+					@include latoLight(18px);
+					@include themeText();
+				}
+
+				ul {
+					margin: 30px 0 0 0;
+
+					li {
+						@include latoLight(14px);
+						@include themeText();
+						margin: 0 0 10px 0;
+						line-height: 1.4em;
+					}
+				}
+			}
+		}
+
+		.top-winrate > p {
+			@include latoLight(10px);
+			@include themeText();
+			margin: 5px 0 0 10px;
+		}
+
+		@media screen and (max-width: $RESP_break-small) {
+			@include size(100%, auto);
+			padding: 0 !important;
+		}
+
+		//@media screen and (max-width: $RESP_break-small) {
+		//	@include size(100%, auto);
+		//	padding: 0 10px;
+		//	float: none;
+		//}
+	}
+}
+
+ul.list-stripe {
+	li {
+		border-bottom: 1px solid transparentize($L55_Highlight, 0.8);
+		border-left:   1px solid transparentize($L55_Highlight, 0.8);
+		border-right:  1px solid transparentize($L55_Highlight, 0.8);
+
+		&:first-child {
+			border-top: 1px solid transparentize($L55_Highlight, 0.8);
+		}
+
+		&:nth-child(even) {
+			background: transparentize($L55_Highlight, 0.9);
+
+			&:hover {
+				background: transparentize($L55_Highlight, 0.85);
+			}
+		}
+
+		&:hover {
+			background: lighten($L55_Base, 1.5%);
+		}
+	}
+}
+
+ul.list-icon {
+
+	li {
+		@include latoLight(14px);
+		@include size(100%, auto);
+		position: relative;
+		overflow: hidden;
+		padding:  10px;
+
+		a {
+			@include size(100%);
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 4;
+		}
+
+		.listItemDetails, .listItemIcon {
+			float: left;
+		}
+
+		.listItemIcon {
+			@include size(40px);
+
+			> img {
+				@include size(100%);
+			}
+		}
+
+		.listItemDetails {
+			@include size(auto, 40px);
+			margin:      0 0 0 10px;
+			line-height: 20px;
+
+			p:first-child {
+				@include latoLight(16px);
+				@include themeText();
+			}
+
+			p:last-child {
+				@include latoLight(12px);
+				@include themeText();
+			}
+		}
+	}
+}

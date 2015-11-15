@@ -1,0 +1,22 @@
+{
+    "sass.enabled": false,
+    "sass.compiler": "libsass",
+    "path": {
+        "styles/global.scss": {
+            "sass.enabled": true,
+            "sass.options": {
+                "includePaths": [
+                    "libs/bourbon/stylesheets/",
+					"styles/layout/*.scss",
+					"styles/base/*.scss",
+					"styles/helpers/*.scss"
+                ],
+                "outputDir": "",
+                "imagePath": null,
+                "sourceComments": false,
+                "outputStyle": "/images/"
+            },
+            "linting.collapsed": false
+        }
+    }
+}

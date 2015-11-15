@@ -1,0 +1,211 @@
+//	1. SIZE
+//-------------------------------------------------------------------------------------------------------------|
+
+	// Set a width and a height of an element. If only 1 variable is passed,
+	// height will be set to the value of width
+
+	@mixin size($width, $height: $width) {
+		width:	$width;
+		height: $height;
+	}
+
+
+//	2. POSITION
+//-------------------------------------------------------------------------------------------------------------|
+
+	// Set an elements position property as well as top, right, bottom and left.
+
+	@mixin position($position, $args) {
+		@each $o in top right bottom left {
+			$i: index($args, $o);
+
+			@if $i and $i + 1<= length($args) and type-of(nth($args, $i + 1)) == number  {
+				#{$o}: nth($args, $i + 1);
+			}
+		}
+
+		position: $position;
+	}
+
+	@mixin absolute($args) {
+		@include position(absolute, $args);
+	}
+
+	@mixin fixed($args) {
+		@include position(fixed, $args);
+	}
+
+	@mixin relative($args) {
+		@include position(relative, $args);
+	}
+
+
+//	3. VENDOR
+//-------------------------------------------------------------------------------------------------------------|
+
+	// Add vendor prefixes for features not supported in all browsers.
+	//
+	//  - $property: 	The property to add vendor prefixes for
+	//  - $value:		The value for the selected property
+	//  - $vendors:		(Optional, default: all) Select specific
+	//					vendors to add prefixes for
+
+	@mixin prefix($property, $value, $vendors: webkit moz ms o) {
+		@if $vendors {
+			@each $vendor in $vendors {
+				#{"-" + $vendor + "-" + $property}: #{$value};
+			}
+		}
+		#{$property}: #{$value};
+	}
+
+	// Support regular CSS functions (e.g. rotate($deg))
+
+	@mixin transform($value) {
+		@include prefix(transform, $value, webkit ms);
+	}
+
+	@mixin column-count($value) {
+		@include prefix(column-count, $value, webkit moz);
+	}
+
+
+//	4. CLEARFIX
+//-------------------------------------------------------------------------------------------------------------|
+
+	// Clearfix for containers with floating elements.
+	// Call using '@extend %clearfix;'
+
+	%clearfix {
+		*zoom: 1;
+		&:before, &:after {
+			content: " ";
+			display: table;
+		}
+		&:after {
+			clear: both;
+		}
+	}
+
+
+//	5. DISABLE SELECTION
+//-------------------------------------------------------------------------------------------------------------|
+
+	// Disable selection for an element with all vendor prefixes
+	// Call using '@extend %disableSelection;'
+
+	%disableSelection {
+		user-select: 					none;
+			-webkit-touch-callout: 		none;
+			-webkit-user-select: 		none;
+			-khtml-user-select: 		none;
+			-moz-user-select: 			none;
+			-ms-user-select: 			none;
+		cursor: default;
+	}
+
+	%enableSelection {
+		user-select: 				all;
+		-webkit-touch-callout: 		default;
+		-webkit-user-select: 		text;
+		-khtml-user-select: 		all;
+		-moz-user-select: 			all;
+		-ms-user-select: 			all;
+	}
+
+
+//	6. CENTER HORIZONTALLY
+//-------------------------------------------------------------------------------------------------------------|
+
+	// Centers an element horizontally if the container has a
+	// defined width property
+	// Call using '@extend %centerHorizontally;'
+
+	%centerHorizontally {
+		margin-right: 	auto;
+		margin-left: 	auto;
+	}
+
+
+//	8. MIN-SIZE
+//-------------------------------------------------------------------------------------------------------------|
+
+	// Set a width and a height of an element. If only 1 variable is passed,
+	// height will be set to the value of width
+
+	@mixin min-size($min-width, $min-height: $min-width) {
+		min-width:	$min-width;
+		min-height: $min-height;
+	}
+
+/// Add a fancy gradient and a matching border to an element.
+/// @author Daniel 'Gnifle' Olsen
+/// @access public
+/// @link https://jsfiddle.net/zw76ucuh/3/ Example jsfiddle
+/// @output Border and background gradient code in SCSS with relevant vendor prefixes.
+///
+/// @example scss - Basic usage
+///     .example {
+///         @include fancyGradient(bottom, rgb(40, 140, 251), (0.6, 0.85, 1), (0%, 20%, 60%), true);
+///     }
+/// @example scss - Basic usage output
+///     .example {
+///         border-bottom: 3px solid rgb(40, 140, 251);
+///         background: linear-gradient(bottom,
+///             rgba(40, 140, 251, 0.4) 0%,
+///             rgba(40, 140, 251, 0.15) 20%,
+///             rgba(40, 140, 251, 0) 60%);
+///         background: -webkit-linear-gradient(bottom,
+///             rgba(40, 140, 251, 0.4) 0%,
+///             rgba(40, 140, 251, 0.15) 20%,
+///             rgba(40, 140, 251, 0) 60%);
+///         background: -moz-linear-gradient(bottom,
+///             rgba(40, 140, 251, 0.4) 0%,
+///             rgba(40, 140, 251, 0.15) 20%,
+///             rgba(40, 140, 251, 0) 60%);
+///         background: -o-linear-gradient(bottom,
+///             rgba(40, 140, 251, 0.4) 0%,
+///             rgba(40, 140, 251, 0.15) 20%,
+///             rgba(40, 140, 251, 0) 60%);
+///     }
+/// @param {String} $direction [top]
+///     The from-direction of the gradient.
+/// @param {Color} $color [rgb(40, 140, 251)]
+///     The color for the gradient - can be HEX, RGB, RGBA, HSL or CMYK.
+/// @param {(Num, Num, Num)} $transparency [(0.6, 0.85, 1)]
+///     List of 3 decimal-percentages for the color to be transparentized at each level of the gradient.
+///     Can be integer or double.
+/// @param {(%, %, %)} $positions [(0%, 20%, 60%)]
+///     List of 3 percentages for the color-stop position at each level of the gradient.
+/// @param {Boolean} $applyBorder [true]
+///     Boolean for whether the 3px border should be added along with the gradient.
+///
+@mixin fancyGradient($direction: top, $color: rgb(40, 140, 251), $transparency: (0.6, 0.85, 1), $positions: (0%, 20%, 60%), $applyBorder: true) {
+	@if $applyBorder == true {
+		border-#{$direction}: 3px solid $color;
+	}
+	background:
+		linear-gradient($direction,
+			transparentize($color, nth($transparency, 1)) nth($positions, 1),
+			transparentize($color, nth($transparency, 2)) nth($positions, 2),
+			transparentize($color, nth($transparency, 3)) nth($positions, 3)
+    );
+	background:
+		-webkit-linear-gradient($direction,
+			transparentize($color, nth($transparency, 1)) nth($positions, 1),
+			transparentize($color, nth($transparency, 2)) nth($positions, 2),
+			transparentize($color, nth($transparency, 3)) nth($positions, 3)
+    );
+	background:
+        -moz-linear-gradient($direction,
+			transparentize($color, nth($transparency, 1)) nth($positions, 1),
+			transparentize($color, nth($transparency, 2)) nth($positions, 2),
+			transparentize($color, nth($transparency, 3)) nth($positions, 3)
+    );
+	background:
+        -o-linear-gradient($direction,
+			transparentize($color, nth($transparency, 1)) nth($positions, 1),
+			transparentize($color, nth($transparency, 2)) nth($positions, 2),
+			transparentize($color, nth($transparency, 3)) nth($positions, 3)
+    );
+}

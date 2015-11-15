@@ -1,0 +1,6 @@
+@import '../../helpers/imports';
+
+.frontpage-section {
+	@include size(100%, 500px);
+	border-top: 3px solid $L55_Highlight;
+}

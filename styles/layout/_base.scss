@@ -1,0 +1,1133 @@
+@import '../helpers/imports';
+
+body {
+	background: $L55_Base !important;
+}
+
+#page {
+	@include size(100%, auto);
+
+	header {
+
+		//nav {
+		//	@extend %disableSelection;
+		//	@include size(100%, 60px);
+		//	background: $L55_Base;
+		//	border-top: 3px solid $L55_Highlight;
+		//	border-bottom: 1px solid transparentize($L55_Highlight, 0.5);
+		//	box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.25);
+		//	transition: height .5s ease .5s;
+		//
+		//	> ul {
+		//		@include size(100%);
+		//
+		//		> li {
+		//			@include prefix(transition, background 1s ease);
+		//			@include size(22%, 100%);
+		//			float: left;
+		//			text-align: center;
+		//
+		//			&.logo {
+		//				@include size(12%, 100%);
+		//			}
+		//
+		//			> a, a:link, a:active, a:visited {
+		//				@include size(100%);
+		//				display: block;
+		//				text-decoration: none;
+		//
+		//				> span {
+		//					@include transform(translateY(-50%));
+		//					@include sourceSansUltraLight('22px');
+		//					@include themeText();
+		//					text-transform: uppercase;
+		//					display: block;
+		//					position: relative;
+		//					top: 50%;
+		//					transition: font-size .5s ease .5s;
+		//				}
+		//
+		//				> img {
+		//					@include transform(translateY(-50%));
+		//					@include size(60%, auto);
+		//					position: relative;
+		//					top: 50%;
+		//					padding: 0 15%;
+		//					transition: width .5s ease .5s;
+		//				}
+		//			}
+		//
+		//			&:hover, &.active {
+		//				background: -webkit-linear-gradient(top,
+		//					rgba(40,140,251,0.4),
+		//	                rgba(40,140,251,0.15) 10%,
+		//		            rgba(40,140,251,0) 80%
+		//	            );
+		//
+		//				> a {
+		//					text-decoration: none;
+		//				}
+		//			}
+		//		}
+		//	}
+		//}
+	}
+
+	//.team-page {
+	//	padding: 30px 40px;
+	//
+	//	> h1 {
+	//		margin: 20px 0 25px 0;
+	//		padding: 0 0 5px 0;
+	//		border-bottom: 3px solid rgb(255, 255, 255);
+	//		font-family: 'Lato', sans-serif;
+	//		font-size:   36px;
+	//		font-weight: 300;
+	//		font-variant: small-caps;
+	//		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+	//		color:       rgb(255, 255, 255);
+	//		line-height: 1.2em;
+	//	}
+	//
+	//	> button {
+	//		@extend %disableSelection;
+	//		@include size(150px, 60px);
+	//		float: right;
+	//		background: -webkit-linear-gradient(top,
+	//				rgba(40,140,251,0.4),
+	//				rgba(40,140,251,0.15) 10%,
+	//				rgba(40,140,251,0) 80%
+     //       );
+	//		border: 3px solid $L55_Highlight;
+	//		border-radius: 3px;
+	//		box-shadow:    2px 2px 2px rgba(0, 0, 0, 0.4);
+	//		cursor: pointer;
+	//		font-family: 'Lato', sans-serif;
+	//		font-size:   24px;
+	//		font-weight: 300;
+	//		font-variant: small-caps;
+	//		text-align: center;
+	//		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+	//		color:       rgb(255, 255, 255);
+	//		line-height: 0;
+	//		transition: all .25s ease;
+	//
+	//		&:hover {
+	//			background: -webkit-linear-gradient(top,
+	//					rgba(40,140,251,0.6),
+	//					rgba(40,140,251,0.20) 10%,
+	//					rgba(40,140,251,0) 90%
+	//            );
+	//		}
+	//
+	//		&:disabled, &:disabled:hover {
+	//			border-color: $L55_Yellow;
+	//			background: -webkit-linear-gradient(top,
+	//					transparentize($L55_Yellow, 0.4),
+	//					transparentize($L55_Yellow, 0.85) 10%,
+	//					transparentize($L55_Yellow, 1) 80%
+	//            ), url(#{$IMAGES}/graphics/spinner.gif) no-repeat center center;
+	//			background-size: auto, 16%;
+	//		}
+	//
+	//		&.error {
+	//			border-color: $L55_Red;
+	//			background: -webkit-linear-gradient(top,
+	//					transparentize($L55_Red, 0.4),
+	//					transparentize($L55_Red, 0.85) 10%,
+	//					transparentize($L55_Red, 1) 80%
+     //           );
+	//		}
+	//
+	//		&.success {
+	//			border-color: $L55_Green;
+	//			background: -webkit-linear-gradient(top,
+	//					transparentize($L55_Green, 0.4),
+	//					transparentize($L55_Green, 0.85) 10%,
+	//					transparentize($L55_Green, 1) 80%
+	//            );
+	//		}
+	//	}
+	//
+	//	section {
+	//		@extend %clearfix;
+	//		margin: 0 0 30px 0;
+	//		position: relative;
+	//
+	//		> h2 {
+	//			margin: 0 0 10px 0;
+	//			font-family: 'Lato', sans-serif;
+	//			font-size:   24px;
+	//			font-weight: 300;
+	//			text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+	//			color:       rgb(255, 255, 255);
+	//			line-height: 1.2em;
+	//		}
+	//	}
+	//
+	//	.team-header {
+	//
+	//		> div {
+	//			float: left;
+	//		}
+	//
+	//		.team-icon {
+	//			@extend %disableSelection;
+	//			@include size(120px);
+	//			position: relative;
+	//
+	//			> img {
+	//				@include size(100%);
+	//			}
+	//
+	//			&:before {
+	//				@include transform(translate(-2px, -2px));
+	//				@include size(103%);
+	//				content:             '';
+	//				position:            absolute;
+	//				background-repeat:   no-repeat;
+	//				background-image:    url(#{$IMAGES}/graphics/borders/diamond/diamond-corner-top-left.png),
+	//				                     url(#{$IMAGES}/graphics/borders/diamond/diamond-corner-top-right.png),
+	//				                     url(#{$IMAGES}/graphics/borders/diamond/diamond-corner-bottom-left.png),
+	//				                     url(#{$IMAGES}/graphics/borders/diamond/diamond-corner-bottom-right.png),
+	//				                     url(#{$IMAGES}/graphics/borders/diamond/diamond-border-top.png),
+	//				                     url(#{$IMAGES}/graphics/borders/diamond/diamond-border-bottom.png),
+	//				                     url(#{$IMAGES}/graphics/borders/diamond/diamond-border-left.png),
+	//				                     url(#{$IMAGES}/graphics/borders/diamond/diamond-border-right.png);
+	//				background-position: top left, top right, bottom left, bottom right, top center, bottom center, center left, center right;
+	//				background-size:     auto auto, auto auto, auto auto, auto auto, 50% 11px, 92% 11px, 8px 90%, 8px 90%;
+	//			}
+	//		}
+	//
+	//		.team-details {
+	//			padding: 0 0 0 30px;
+	//
+	//			> h1 {
+	//				margin: 0 0 10px 0;
+	//				font-family: 'Lato', sans-serif;
+	//				font-size: 80px;
+	//				font-weight: 300;
+	//				font-variant: small-caps;
+	//				text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+	//				color: rgb(255, 255, 255);
+	//			}
+	//
+	//			> ul {
+	//				@extend %clearfix;
+	//				list-style: none;
+	//				display: block;
+	//				margin: 0 0 10px 0;
+	//
+	//				li {
+	//					float: left;
+	//					font-family: 'Lato', sans-serif;
+	//					font-size: 18px;
+	//					font-weight: 300;
+	//					text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+	//					color: rgb(255, 255, 255);
+	//					letter-spacing: 1px;
+	//					line-height: 1.2em;
+	//
+	//					&:not(:first-child):before {
+	//						content: '-';
+	//						margin: 0 10px 0 10px;
+	//					}
+	//				}
+	//			}
+	//		}
+	//	}
+	//
+	//	.team-roster {
+	//		@extend %disableSelection;
+	//
+	//		> ul {
+	//
+	//			> li {
+	//				@include size(20%, auto);
+	//				float: left;
+	//				margin: 0 0 10px 0;
+	//				border-top: 3px solid $L55_Highlight;
+	//				background: -webkit-linear-gradient(top,
+	//							rgba(40,140,251,0.4),
+	//							rgba(40,140,251,0.15) 10%,
+	//							rgba(40,140,251,0) 80%
+	//	            );
+	//
+	//				&:hover {
+	//					background: -webkit-linear-gradient(top,
+	//								rgba(40,140,251,0.6),
+	//								rgba(40,140,251,0.20) 10%,
+	//								rgba(40,140,251,0) 90%
+	//		            );
+	//				}
+	//
+	//				&:first-child, &:nth-child(6n) {
+	//					border-left: 1px solid transparentize($L55_Highlight, 0.9);
+	//				}
+	//
+	//				a:link, a:active, a:visited {
+	//					@include size(100%);
+	//					background: url(#{$IMAGES}/graphics/opgg.png) no-repeat right center;
+	//					background-size: 40px;
+	//					padding: 10px;
+	//					display: block;
+	//					overflow: hidden;
+	//					border-right: 1px solid transparentize($L55_Highlight, 0.9);
+	//
+	//					.teamMemberProfileImage {
+	//						@include size(50px);
+	//						float: left;
+	//						background: url(#{$IMAGES}/graphics/roles/roles.png) no-repeat;
+	//						background-size: auto 50px;
+	//
+	//						&.top { background-position: -150px 0; }
+	//						&.jungle { background-position: -250px 0; }
+	//						&.mid { background-position: -100px 0; }
+	//						&.adc { background-position: -50px 0; }
+	//						&.support { background-position: -200px 0; }
+	//
+	//						> img {
+	//							@include size(100%);
+	//						}
+	//					}
+	//
+	//					.teamMemberDetails {
+	//						float:       left;
+	//						padding:     2px 0 0 10px;
+	//
+	//						> p {
+	//							margin: 0 0 5px 0;
+	//							font-family: 'Lato', sans-serif;
+	//							font-size:   16px;
+	//							font-weight: 300;
+	//							text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+	//							color:       rgb(255, 255, 255);
+	//							line-height: 1.2em;
+	//
+	//							&:nth-child(2) {
+	//								font-size: 14px;
+	//							}
+	//						}
+	//					}
+	//				}
+	//			}
+	//		}
+	//	}
+	//
+	//	.team-latest {
+	//		@extend %disableSelection;
+	//
+	//		> ul {
+	//			@extend %clearfix;
+	//			overflow: hidden;
+	//
+	//			> li {
+	//				@include size(5%, 60px);
+	//				float: left;
+	//				text-align: center;
+	//
+	//				&:before {
+	//					display: inline-block;
+	//					font-family: 'Lato', sans-serif;
+	//					font-size:   16px;
+	//					font-weight: 300;
+	//					text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+	//					color:       rgb(255, 255, 255);
+	//					line-height: 40px;
+	//				}
+	//
+	//				&.table {
+	//					border-top: 3px solid rgb(53, 251, 25);
+	//					background: -webkit-linear-gradient(top,
+	//							rgba(53, 251, 25, 0.4),
+	//							rgba(53, 251, 25, 0.15) 10%,
+	//							rgba(53, 251, 25, 0) 80%
+	//		            );
+	//
+	//					&:before {
+	//						content: 'W';
+	//					}
+	//				}
+	//
+	//				&.loss {
+	//					border-top: 3px solid rgb(225, 34, 25);
+	//					background: -webkit-linear-gradient(top,
+	//							rgba(225, 34, 25, 0.4),
+	//							rgba(225, 34, 25, 0.15) 10%,
+	//							rgba(225, 34, 25, 0) 80%
+	//		            );
+	//
+	//					&:before {
+	//						content: 'L';
+	//					}
+	//				}
+	//			}
+	//		}
+	//	}
+	//}
+}
+
+@media screen and (max-width: 1024px) {
+
+	#page {
+
+		header {
+
+			.frontpage-form, #summonerForm, #teamForm, #region-select {
+				@include size(100% !important, auto);
+				padding: 0 50px;
+				text-align: left !important;
+				float: left !important;
+
+				input[type=text] {
+					text-align: left !important;
+				}
+
+				select {
+					background-position: 97.2% center;
+				}
+			}
+		}
+	}
+
+	a.popup {
+		padding: 0 0 20px 0;
+	}
+
+}
+
+@media screen and (max-width: 375px) {
+
+	#page {
+
+		header {
+
+			> h1 {
+				margin: 15px 0 !important;
+			}
+
+			nav {
+				@include size(100%, auto);
+				@include min-size(auto, 60px);
+				position: relative;
+
+				&:before {
+					@include transform(translateY(-50%));
+					@include size(auto, 30px);
+					content: 'League 55';
+					position: absolute;
+					top: 50%;
+					left: 20px;
+					padding: 3px 0 0 45px;
+					background: transparent url(#{$IMAGES}/gnifle/logo_white@64px.png) no-repeat;
+					background-size: contain;
+					font-family: 'Source Sans Pro', sans-serif;
+					font-weight: 200;
+					font-size: 24px;
+					font-variant: small-caps;
+					color: rgb(255, 255, 255);
+				}
+
+				&:after {
+					@include transform(translateY(-50%));
+					@include size(auto, 30px);
+					content: '\2630';
+					position: absolute;
+					top: 50%;
+					right: 20px;
+					font-size: 30px;
+					color: rgb(255, 255, 255);
+				}
+
+				ul {
+					@include prefix(transition, max-height .75s ease);
+					@include size(100%, auto);
+					max-height: 0;
+					position: absolute;
+					top: 100%;
+					background: $L55_Base;
+					overflow: hidden;
+					z-index: 11;
+
+					> li {
+						@include size(100%, auto);
+						display: block;
+						padding: 10px 20px 10px 20px;
+						border-top: 1px solid darken($L55_Base, 2);
+
+						&:last-child {
+							border-bottom: 3px solid $L55_Highlight;
+						}
+
+						&.logo {
+							display: none;
+						}
+
+						&:hover {
+							background: none;
+						}
+
+						> a {
+							text-align: left !important;
+
+							> span {
+								@include transform(none !important);
+								font-size: 18px !important;
+							}
+						}
+					}
+
+					&.menu-active {
+						max-height: 1000px;
+					}
+				}
+			}
+
+			.frontpage-title {
+				font-size: 35px;
+			}
+
+			.frontpage-form, #summonerForm, #teamForm, #region-select {
+				padding: 0 20px !important;
+
+				> h2 {
+					font-size: 16px;
+				}
+
+				input[type=text] {
+					padding: 15px 60px 13px 20px;
+					font-size: 16px !important;
+				}
+
+				button {
+					padding: 15px 20px 5px 20px !important;
+				}
+
+				select {
+					height: 48px;
+					padding: 14px 20px 12px 20px !important;
+					background-position: 93% center !important;
+					font-size: 16px !important;
+				}
+
+				.form-area {
+
+					> ul {
+
+						> a {
+
+							> li {
+								padding: 15px 20px 15px 20px !important;
+
+								> span {
+									font-size: 14px;
+								}
+
+								> span:first-child {
+
+								}
+
+								> span:last-child {
+
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.ct-chart {
+		width: 100% !important;
+		padding: 10px 0 10px 0;
+	}
+}
+
+a.popup {
+	@include size(auto, auto);
+	position:    relative;
+	cursor:      help;
+	top:         3px;
+	margin: auto 10px auto 10px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	font-size:   14px;
+	color:       rgb(255, 255, 255);
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+
+	> span {
+		@include size(200px, auto);
+		display:       none;
+		position:      absolute;
+		top:           34px;
+		right:         0;
+		background:    $L55_Base;
+		padding:       10px;
+		border:        3px solid $L55_Highlight;
+		border-radius: 3px;
+		font-family:   'Lato', sans-serif;
+		font-weight:   300;
+		font-size:     10px;
+		line-height:   12px;
+		box-shadow:    2px 2px 2px rgba(0, 0, 0, 0.4);
+		z-index: 10;
+
+		&:before {
+			@include transform(translate(-50%, -10px) rotate(45deg));
+			@include size(16px);
+			content:     '';
+			position:    absolute;
+			top:         0;
+			left:        50%;
+			background:  $L55_Base;
+			border-top:  3px solid $L55_Highlight;
+			border-left: 3px solid $L55_Highlight;
+		}
+	}
+
+	&:hover > span {
+		display: block;
+	}
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+	outline: none;
+}
+
+.chart {
+	float: left;
+	position: relative;
+	margin: 20px 0 30px 0;
+	padding: 0 20px 0 0;
+	min-height: 260px;
+	opacity: 0;
+	transition: opacity .5s ease;
+
+	&.cl4 { width: 100%; }
+	&.cl3 { width: 75%; }
+	&.cl2 { width: 50%; }
+	&.cl15 { width: 33.3%; }
+	&.cl1 { width: 25%; }
+
+	.ct-chart {
+		position: relative;
+		padding:       0 5px 15px 0;
+		border-bottom: 3px solid $L55_Highlight;
+		background: -webkit-linear-gradient(bottom,
+				transparentize($L55_Highlight, 0.94),
+				transparentize($L55_Highlight, 0.97) 15%,
+				transparentize($L55_Highlight, 1) 50%
+        );
+		transition: all .5s ease;
+	}
+
+	> h3 {
+		margin: 8px 0 0 0;
+		padding: 0 0 10px 0;
+		border-bottom: 3px solid $L55_Highlight;
+		font-family: 'Lato', sans-serif;
+		font-weight: 300;
+		font-size:   18px;
+		color:       rgb(255, 255, 255);
+		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+	}
+}
+
+.ct-series-a .ct-bar {
+	/* The width of your bars */
+	stroke-width: 10px;
+	/* Yes! Dashed bars! */
+	stroke-dasharray: 1px;
+}
+
+.ct-label {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 200;
+
+	&.ct-horizontal {
+		@include transform(rotate(-30deg) translateY(10px));
+		align-items: flex-end;
+		position: relative;
+		left: -5px;
+	}
+}
+
+.table-container {
+	margin: 0 0 20px 0;
+
+	table {
+		@include size(100%, auto);
+		margin: 10px 0 20px 0;
+
+		thead {
+
+			tr {
+
+				&:first-child {
+					@include fancyGradient(bottom, $L55_Highlight, (0.6, 0.85, 1), (0%, 20%, 60%), true);
+				}
+
+				th {
+					font-size: 16px;
+					width: auto !important;
+
+					@media screen and (max-width: $RESP_break-small) {
+						padding: 10px 35px 10px 10px;
+						font-size: 13px;
+					}
+				}
+			}
+		}
+
+		td, th {
+			padding:     10px;
+			font-family: 'Lato', sans-serif;
+			font-weight: 300;
+			color:       rgb(255, 255, 255);
+			text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+			text-align:  left;
+			white-space: nowrap;
+
+			&:not(:last-child) {
+				border-right: 1px solid transparentize($L55_Highlight, 0.95);
+			}
+		}
+
+		tbody {
+
+			tr {
+
+				&:nth-child(even) {
+					background: transparentize($L55_Highlight, 0.9);
+				}
+
+				td {
+					font-size: 15px;
+
+					@media screen and (max-width: $RESP_break-small) {
+						font-size: 12px;
+					}
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: $RESP_break-small) {
+		-webkit-overflow-scrolling: touch;
+		overflow-x: scroll;
+		overflow-y: auto;
+	}
+}
+
+.notice-container {
+	position: relative;
+	overflow: hidden;
+	height: 0;
+	text-align: center;
+	cursor: pointer;
+	transition: height .25s ease;
+
+	&.notice, &.error, &.warning, &.success {
+		height: 50px;
+	}
+
+	&.notice {
+		@include fancyGradient(top, $L55_Highlight, (0.6, 0.85, 1), (0%, 10%, 80%), true);
+	}
+
+	&.error {
+		@include fancyGradient(top, $L55_Red, (0.6, 0.85, 1), (0%, 10%, 80%), true);
+	}
+
+	&.warning {
+		@include fancyGradient(top, $L55_Yellow, (0.6, 0.85, 1), (0%, 10%, 80%), true);
+	}
+
+	&.success {
+		@include fancyGradient(top, $L55_Green, (0.6, 0.85, 1), (0%, 10%, 80%), true);
+	}
+
+	> span {
+		@include latoLight(16px);
+		@include themeText();
+		line-height: 40px;
+	}
+
+	&:after {
+		@include size(100%, auto);
+		@include latoLight(10px);
+		content: 'Click to dismiss';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		text-align: center;
+		font-family: 'Lato', sans-serif;
+		font-size:   10px;
+		font-weight: 300;
+		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+		color:       rgb(255, 255, 255);
+		opacity: 0.25;
+	}
+}
+
+header.subpage {
+	overflow: hidden;
+	padding: 10px 20px;
+	border-bottom: 1px solid darken($L55_Base, 5%);
+
+	.menubar-container {
+		@extend %centerHorizontally;
+		width: 1200px;
+
+		.logo, .logo-text {
+			float: left;
+		}
+
+		.logo {
+			@include size(40px);
+			position:        relative;
+			background:      url(#{$IMAGES}/gnifle/logo_white@64px.png);
+			background-size: cover;
+
+			a {
+				@include size(100%);
+				position: absolute;
+			}
+
+			@media screen and (max-width: $RESP_break-small) {
+				@include size(30px);
+			}
+		}
+
+		.logo-text {
+			@include size(auto, 40px);
+			margin:      0 0 0 10px;
+			line-height: 40px;
+
+			a {
+				@include sourceSansUltraLight(26px);
+				font-variant: small-caps;
+
+				@media screen and (max-width: $RESP_break-small) {
+					@include sourceSansUltraLight(16px);
+				}
+			}
+
+			@media screen and (max-width: $RESP_break-small) {
+				@include size(auto, 30px);
+				line-height: 30px;
+			}
+		}
+
+		.update {
+			float: right;
+
+			button, p {
+				float: left;
+			}
+
+			button {
+				@include size(auto, 40px);
+				@include latoLight(16px);
+				@include themeText();
+				font-variant: small-caps;
+				margin: 0 0 0 10px;
+				padding: 0 10px 2px 10px;
+				background: lighten($L55_Base, 5%);
+				border: 3px solid $L55_Highlight;
+				border-radius: 3px;
+				cursor: pointer;
+
+				&:hover {
+					background: lighten($L55_Base, 10%);
+				}
+
+				@media screen and (max-width: $RESP_break-small) {
+					@include size(auto, 30px);
+					font-size: 12px;
+				}
+			}
+
+			p {
+				@include latoLight(14px);
+				line-height: 40px;
+				
+				@media screen and (max-width: $RESP_break-small) {
+					display: none;
+				}
+			}
+		}
+
+		@media screen and (max-width: $RESP_break-small) {
+			width: 100%;
+		}
+	}
+
+	@media screen and (max-width: $RESP_break-small) {
+		padding: 10px;
+	}
+}
+
+.team-page {
+
+	.team-header {
+		@include size(100%, auto);
+		@extend %centerHorizontally;
+		width: 1200px;
+		overflow: hidden;
+		padding: 20px 0;
+
+		.team-icon, .team-profile {
+			float: left;
+		}
+
+		.team-icon {
+			@include size(70px, auto);
+			position: relative;
+			padding: 0 10px 0 0;
+
+			//&.diamond:before{
+			//	@include transform(translate(-2px, -2px));
+			//	@include size(103%);
+			//	content:             '';
+			//	position:            absolute;
+			//	background-repeat:   no-repeat;
+			//	background-image:    url(#{$IMAGES}/graphics/borders/diamond/diamond-corner-top-left.png),
+			//	                     url(#{$IMAGES}/graphics/borders/diamond/diamond-corner-top-right.png),
+			//	                     url(#{$IMAGES}/graphics/borders/diamond/diamond-corner-bottom-left.png),
+			//	                     url(#{$IMAGES}/graphics/borders/diamond/diamond-corner-bottom-right.png),
+			//	                     url(#{$IMAGES}/graphics/borders/diamond/diamond-border-top.png),
+			//	                     url(#{$IMAGES}/graphics/borders/diamond/diamond-border-bottom.png),
+			//	                     url(#{$IMAGES}/graphics/borders/diamond/diamond-border-left.png),
+			//	                     url(#{$IMAGES}/graphics/borders/diamond/diamond-border-right.png);
+			//	background-position: top left, top right, bottom left, bottom right, top center, bottom center, center left, center right;
+			//	background-size:     auto auto, auto auto, auto auto, auto auto, 50% 11px, 92% 11px, 8px 90%, 8px 90%;
+			//}
+
+			> img {
+				@include size(100%, auto);
+			}
+
+			@media screen and (max-width: $RESP_break-small) {
+				@include size(16%, auto);
+			}
+		}
+
+		.team-profile {
+
+			h1 {
+				@include latoLight(22px);
+				margin: 5px 0 5px 0;
+
+				@media screen and (max-width: $RESP_break-small) {
+					font-size: 16px;
+				}
+			}
+
+			p {
+				@include latoLight(16px);
+
+				@media screen and (max-width: $RESP_break-small) {
+					font-size: 10px;
+				}
+			}
+
+			@media screen and (max-width: $RESP_break-small) {
+				@include size(84%, auto);
+			}
+		}
+
+		@media screen and (max-width: $RESP_break-small) {
+			width: 100%;
+			padding: 20px 10px;
+		}
+	}
+
+	.tab-headers {
+		width: 100%;
+		border-bottom: 3px solid $L55_Highlight;
+
+		.tab-headers-inner {
+			@extend %centerHorizontally;
+			width: 1200px;
+			overflow: hidden;
+
+			input[type=radio] {
+				display: none;
+			}
+
+			label {
+				float: left;
+				display: block;
+				position: relative;
+				top: 1px;
+				padding: 14px 20px 14px 40px;
+				cursor: pointer;
+				white-space: nowrap;
+
+				&:nth-child(n+6) {
+					border-top: 1px solid transparentize($L55_Highlight, 0.8);
+					border-left: 1px solid transparentize($L55_Highlight, 0.8);
+				}
+
+				&:nth-child(6) {
+					@media screen and (max-width: $RESP_break-small) {
+						border-left: 0;
+					}
+				}
+
+				&:last-child {
+					border-right: 1px solid transparentize($L55_Highlight, 0.8);
+
+					@media screen and (max-width: $RESP_break-small) {
+						border-right: 0;
+					}
+				}
+
+				&:hover, &.active {
+					@include fancyGradient(bottom, $L55_Highlight, (0.6, 0.85, 1), (0%, 20%, 80%), false);
+				}
+
+				&:before {
+					@include size(100%);
+					position: absolute;
+					top: 0;
+					left: 0;
+					content: '';
+				}
+
+				&.label-tab-info:before, &.label-tab-champions:before,
+				&.label-tab-stats:before, &.label-tab-damage:before,
+				&.label-tab-history:before {
+					background-position: center left 10px;
+					background-repeat: no-repeat;
+					background-size: 20px;
+				}
+
+				i {
+					@include transform(translateY(-50%));
+					@include themeText();
+					position: absolute;
+					top: 50%;
+					left: 10px;
+					font-size: 14px;
+					padding: 4px;
+					width: 20px;
+					text-align: center;
+					color: $WHITE;
+
+					@media screen and (max-width: $RESP_break-small) {
+						@include transform(translate(-50%, -50%));
+						left: 50%;
+					}
+				}
+
+				span {
+					@include latoLight(18px);
+					@include themeText();
+
+					@media screen and (max-width: $RESP_break-small) {
+						visibility: hidden;
+					}
+				}
+
+				@media screen and (max-width: $RESP_break-small) {
+					width: 20%;
+				}
+			}
+
+			@media screen and (max-width: $RESP_break-small) {
+				width: 100%;
+			}
+		}
+	}
+
+	.tab-content-container {
+		@extend %centerHorizontally;
+		width: 1200px;
+		position: relative;
+
+		.tab-content {
+			@include size(100%, auto);
+			display: none;
+			position: absolute;
+			z-index: 1;
+			padding: 20px 0;
+			background: $L55_Base;
+
+			&.active {
+				display: block;
+				z-index: 2;
+			}
+
+			h2 {
+				@include latoLight(22px);
+				@include themeText();
+				margin: 0 0 10px 0;
+			}
+
+			@media screen and (max-width: $RESP_break-small) {
+				padding: 20px 10px;
+			}
+		}
+
+		@media screen and (max-width: $RESP_break-small) {
+			width: 100%;
+		}
+	}
+}
+
+//.sections {
+//	width: 100%;
+//	position: relative;
+//	min-height: 200px;
+//	clear: both;
+//}
+//.tab {
+//	width: 100%;
+//	float: left;
+//}
+//.tab label {
+//	background: #eee;
+//	padding: 10px;
+//	border: 1px solid #ccc;
+//	margin-left: -1px;
+//	position: relative;
+//	//left: 20px;
+//	width: 20%;
+//	display: inline-block;
+//}
+//.tab [type=radio] {
+//	display: none;
+//}
+//.content {
+//	position: absolute;
+//	top: 38px;
+//	left: 100%;
+//	background: $L55_Base;
+//	right: 0;
+//	bottom: 0;
+//	padding: 20px;
+//	border-top: 3px solid $L55_Highlight;
+//	opacity: 0;
+//	transition-property: none;
+//}
+//[type=radio]:checked ~ label {
+//	background: white;
+//	border-bottom: 1px solid white;
+//	z-index: 2;
+//}
+//[type=radio]:checked ~ label ~ .content {
+//	z-index: 1;
+//	opacity: 1;
+//	left: 0;
+//	transition: opacity .25s ease .125s, left .25s ease;
+//}

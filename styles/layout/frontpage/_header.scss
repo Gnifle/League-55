@@ -1,0 +1,229 @@
+@import '../../helpers/imports';
+
+header.frontpage {
+	@include size(100%, auto);
+	@include min-size(auto, 100vh);
+	background: url(#{$IMAGES}/graphics/grille60.png) repeat,
+	            url(#{$IMAGES}/layout/background_freljord.jpg) no-repeat;
+	background-size: auto, cover;
+	overflow: auto;
+
+	nav {
+		@extend %disableSelection;
+		@include size(100%, 120px);
+		background: $L55_Base;
+		border-top: 3px solid $L55_Highlight;
+		border-bottom: 1px solid transparentize($L55_Highlight, 0.5);
+		box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.25);
+
+		> ul {
+			@include size(100%);
+
+			> li {
+				@include size(22%, 100%);
+				float: left;
+				text-align: center;
+
+				&.logo {
+					@include size(12%, 100%);
+				}
+
+				> a, a:link, a:active, a:visited {
+					@include size(100%);
+					display: block;
+
+					> span {
+						@include transform(translateY(-50%));
+						@include sourceSansUltraLight(28px);
+						@include themeText();
+						text-transform: uppercase;
+						display: block;
+						position: relative;
+						top: 50%;
+					}
+
+					> img {
+						@include transform(translateY(-50%));
+						@include size(80%, auto);
+						position: relative;
+						top: 50%;
+						padding: 0 15%;
+					}
+				}
+
+				&:hover, &.active {
+					@include fancyGradient(top, $L55_Highlight, (0.6, 0.85, 1), (0%, 10%, 80%), false);
+				}
+			}
+		}
+	}
+
+	.frontpage-title {
+		@extend %disableSelection;
+		@include size(100%, auto);
+		margin: 40px 0;
+		text-align: center;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-weight: 200;
+		font-size: 60px;
+		color: rgb(255, 255, 255);
+		text-transform: uppercase;
+		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+	}
+
+	.frontpage-form {
+		@extend %disableSelection;
+		@extend %clearfix;
+		@include size(35%, auto);
+		float: left;
+		margin: 0 0 20px 0;
+
+		h2 {
+			margin: 0 10px 10px;
+			font-family: 'Source Sans Pro', sans-serif;
+			font-weight: 200;
+			font-size: 20px;
+			color: rgb(255, 255, 255);
+			text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+		}
+
+		&#summonerForm {
+			padding-left: 50px;
+			float: left;
+		}
+
+		&#teamForm {
+			float:      right;
+			text-align: right;
+			padding-right: 50px;
+
+			input[type=text] {
+				text-align: right;
+			}
+		}
+
+		&#region-select {
+			@include size(30%, auto);
+			padding: 0 50px;
+			float: right;
+			text-align: center;
+		}
+
+		.form-area {
+			@include prefix(border-radius, 3px);
+			@include prefix(transition, max-height 1s ease);
+			@include size(100%, auto);
+			background: rgb(255, 255, 255);
+			position: relative;
+			box-shadow:    2px 2px 2px rgba(0, 0, 0, 0.4);
+
+			input[type=text], select, {
+				@include size(100%, auto);
+				padding:       20px 60px 18px 30px;
+				border:        0;
+				border-radius: 3px;
+				font-family:   'Source Sans Pro', sans-serif;
+				font-weight:   300;
+				font-size:     18px;
+				color:         rgb(100, 100, 100);
+			}
+
+			button {
+				position: absolute;
+				top: 0;
+				right: 0;
+				background: rgb(255, 255, 255);
+				padding: 21px 20px 10px 20px;
+				border:        0;
+				border-radius: 3px;
+				font-family:   'Source Sans Pro', sans-serif;
+				font-weight:   300;
+				font-size:     18px;
+
+				> .form-search {
+					@include size(20px);
+					//background: transparent url(#{$IMAGES}/graphics/search.png) no-repeat;
+					background-size: contain;
+					display: inline-block;
+				}
+
+				> i#summoner-form-search {
+					background-image: url(#{$IMAGES}/graphics/search.png);
+
+					&.searchActive {
+						background-image: url(#{$IMAGES}/graphics/spinner.gif);
+					}
+				}
+			}
+
+			select {
+				@include prefix(appearance, none);
+				padding:    20px 30px 18px 30px;
+				height:     61px;
+				background: url(#{$IMAGES}/graphics/globe.png) 95% / 20px no-repeat rgb(255, 255, 255);
+				cursor: pointer;
+			}
+
+			> ul {
+				@include prefix(transition, max-height 1s ease);
+				@include size(100%, auto);
+				overflow: hidden;
+				height: 0;
+				max-height: 0;
+
+				> a {
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: none;
+
+						> li {
+							background: rgb(240, 240, 240);
+						}
+					}
+
+					> li {
+						@include size(100%, auto);
+						display: -webkit-flex;
+						border-top: 1px solid rgb(200, 200, 200);
+						padding: 15px 30px 15px 30px;
+						color: rgb(100, 100, 100);
+
+						&:last-child {
+							border-bottom-left-radius: 3px;
+							border-bottom-right-radius: 3px;
+						}
+
+						> span {
+							font-family: 'Source Sans Pro', sans-serif;
+							font-weight: 300;
+						}
+
+						> span:first-child {
+							@include size(25%, auto);
+						}
+
+						> span:last-child {
+							@include size(75%, auto);
+						}
+
+						&.result-error {
+							background: transparentize(red, 0.85);
+							font-style: italic;
+						}
+
+						&.result-request {
+							background: transparentize(green, 0.85);
+							font-style: normal;
+						}
+					}
+				}
+
+				&.listVisible {
+					height: auto;
+					max-height: 1000px;
+				}
+			}
+		}
+	}
+}

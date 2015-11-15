@@ -1,0 +1,220 @@
+@import "../helpers/_imports";
+
+// Highlight colour of the paging button for the current page
+$table-paging-button-active: #dcdcdc !default;
+// Hover colour of paging buttons on mouse over
+$table-paging-button-hover: #111111 !default;
+
+/*
+ * Table styles
+ */
+table.dataTable {
+	margin: 20px 0 20px 0;
+
+	// Sorting
+	thead {
+		.sorting,
+		.sorting_asc,
+		.sorting_desc {
+			cursor: pointer;
+			*cursor: hand;
+		}
+
+		.sorting,
+		.sorting_asc,
+		.sorting_desc,
+		.sorting_asc_disabled,
+		.sorting_desc_disabled {
+			background-repeat: no-repeat;
+			background-position: center right 10px;
+		}
+
+		.sorting {
+			background-image: url(#{$IMAGES}/graphics/sort_both.png);
+		}
+		.sorting_asc {
+			background-image: url(#{$IMAGES}/graphics/sort_asc.png);
+		}
+		.sorting_desc {
+			background-image: url(#{$IMAGES}/graphics/sort_desc.png);
+		}
+		.sorting_asc_disabled {
+			background-image: url(#{$IMAGES}/graphics/sort_asc_disabled.png);
+		}
+		.sorting_desc_disabled {
+			background-image: url(#{$IMAGES}/graphics/sort_desc_disabled.png);
+		}
+	}
+}
+
+// Its not uncommon to use * {border-box} now, but it messes up the column width
+// calculations, so use content-box for the table and cells
+table.dataTable,
+table.dataTable th,
+table.dataTable td {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+
+/*
+ * Control feature layout
+ */
+.dataTables_wrapper {
+	position: relative;
+	clear: both;
+	*zoom: 1;
+
+	// Page length options
+	.dataTables_length {
+		float: left;
+		padding: 10px 0 0 10px;
+
+		> label {
+			font-family: 'Lato', sans-serif;
+			font-weight: 300;
+			font-size: 12px;
+			color:       rgb(255, 255, 255);
+			text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+
+			> select {
+				@include    prefix(appearance, none);
+				background: rgb(230, 230, 230);
+				cursor: pointer;
+				border:        0;
+				border-radius: 3px;
+				font-family:   'Source Sans Pro', sans-serif;
+				font-weight:   300;
+				font-size:     12px;
+				color:         rgb(50, 50, 50);
+			}
+		}
+
+		@media screen and (max-width: $RESP_break-small) {
+			padding: 2px 0 0 10px;
+		}
+	}
+
+	// Filtering input
+	.dataTables_filter {
+		float: right;
+		text-align: right;
+		margin: 0 0 5px 0;
+
+		label {
+			font-family: 'Lato', sans-serif;
+			font-weight: 300;
+			font-size: 12px;
+			color:       rgb(255, 255, 255);
+			text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+
+			input {
+				@include size(200px, auto);
+				display: inline-block;
+				margin-left:   0.5em;
+				padding:       6px;
+				background:    rgb(230, 230, 230);
+				border:        0;
+				border-radius: 3px;
+				font-family:   'Source Sans Pro', sans-serif;
+				font-weight:   300;
+				font-size:     12px;
+				color:         rgb(50, 50, 50);
+				-webkit-appearance: none;
+
+				@media screen and (max-width: $RESP_break-small) {
+					@include size(100px, auto);
+					padding: 3px 6px;
+				}
+			}
+		}
+	}
+
+	// Table info
+	.dataTables_info {
+		clear: both;
+		float: left;
+		margin: -10px 0 0 10px;
+		font-family: 'Lato', sans-serif;
+		font-weight: 300;
+		font-size: 12px;
+		color:       rgb(255, 255, 255);
+		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+
+		@media screen and (max-width: $RESP_break-small) {
+			float: none;
+		}
+	}
+
+	// Paging
+	.dataTables_paginate {
+		float: right;
+		text-align: right;
+		position: relative;
+		top: -10px;
+
+		.paginate_button {
+			box-sizing: border-box;
+			display: inline-block;
+			min-width: 1.5em;
+			padding: 0.5em 1em;
+			margin-left: 1px;
+			border-bottom: 3px solid $L55_Highlight;
+			font-family: 'Lato', sans-serif;
+			font-weight: 300;
+			font-size: 14px;
+			color:       rgb(255, 255, 255);
+			text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+			text-align: center;
+			text-decoration: none !important;
+			cursor: pointer;
+			*cursor: hand;
+
+			&.current,
+			&.current:hover {
+				@include fancyGradient(bottom);
+			}
+
+			&.disabled,
+			&.disabled:hover,
+			&.disabled:active {
+				cursor: default;
+				color: #666 !important;
+				border: 1px solid transparent;
+				background: transparent;
+				box-shadow: none;
+			}
+
+			&.previous, &.next, &.previous:hover, &.next:hover {
+				background: none;
+				border: 0;
+			}
+
+			&:hover {
+				@include fancyGradient(bottom);
+			}
+
+			&:active {
+				outline: none;
+				box-shadow: inset 0 0 3px #111;
+			}
+		}
+
+		@media screen and (max-width: $RESP_break-small) {
+			float: none;
+			top: 0;
+			margin: 10px 0 0 0;
+		}
+	}
+
+	// Self clear the wrapper
+	&:after {
+		visibility: hidden;
+		display: block;
+		content: "";
+		clear: both;
+		height: 0;
+	}
+	zoom: 1; // Poor old IE
+}

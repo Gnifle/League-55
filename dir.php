@@ -1,0 +1,1 @@
+<?php define('ROOT', __dir__);

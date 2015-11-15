@@ -1,0 +1,36 @@
+@import "colors";
+
+@mixin font($fontFamily: 'Lato', $fontSize: '14px', $fontWeight: 400, $color: $WHITE) {
+	font-family: $fontFamily, sans-serif;
+	font-size: #{$fontSize};
+	font-weight: $fontWeight;
+	color: $color;
+}
+
+@mixin lato($fontSize: '14px', $fontWeight: 400, $color: $WHITE) {
+	@include font('Lato', $fontSize, $fontWeight, $color);
+}
+
+@mixin latoLight($fontSize: '14px', $color: $WHITE) {
+	@include font('Lato', $fontSize, 300, $color);
+}
+
+@mixin sourceSans($fontSize: '14px', $fontWeight: 400, $color: $WHITE) {
+	@include font('Source Sans Pro', $fontSize, $fontWeight, $color);
+}
+
+@mixin sourceSansLight($fontSize: '14px', $color: $WHITE) {
+	@include font('Source Sans Pro', $fontSize, 300, $color);
+}
+
+@mixin sourceSansUltraLight($fontSize: '14px', $color: $WHITE) {
+	@include font('Source Sans Pro', $fontSize, 200, $color);
+}
+
+@mixin themeText() {
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+a, a:link, a:active, a:hover, a:visited {
+	text-decoration: none;
+}
