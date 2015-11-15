@@ -81,9 +81,10 @@
 					margin:   0 0 5px 0;
 				}
 
-				> span {
+				> p {
 					@include latoLight(18px);
 					@include themeText();
+					line-height: 1.4em;
 				}
 
 				ul {

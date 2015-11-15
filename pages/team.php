@@ -21,7 +21,7 @@
 		</div>
 		<div class="team-profile">
 			<h1>We Are Gamers dk</h1>
-			<p>Silver II - Fiddlesticks's Chimeras</p>
+			<p>WRGdk</p>
 		</div>
 	</div>
 
@@ -110,7 +110,8 @@
 					<h2>Details</h2>
 					<div class="shadeBorder">
 						<img src="images/graphics/badges/silver_2.png" alt="Silver II">
-						<span>Silver II - 90 LP</span>
+						<p>Silver II - 90 LP</p>
+						<p>Fiddlesticks's Chimeras</p>
 						<ul class="list-details">
 							<li>Established:<br>September 8th, 2014</li>
 							<li>Games played:<br>215</li>
